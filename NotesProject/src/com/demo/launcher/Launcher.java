@@ -21,14 +21,18 @@ public class Launcher {
 		noteStore.storeNote("second Note", "foo/bar/second.jpg");
 		//displaying all text notes
 		ArrayList<TextNote> arrtext = noteStore.getAllTextNotes();
+		int i =1;
 		for(TextNote a:arrtext) {
-			System.out.println(a);
+			System.out.println("textnote " + i + ": "+ a);
+			i++;
 		}
 		
 		//displaying all text and image notes
 		ArrayList<TextNote> arrtextandimage = noteStore.getAllTextAndImageNotes();
+		i = 1;
 		for(TextNote a:arrtextandimage) {
-			System.out.println(a);
+			System.out.println("text and image note" + i + ": "+ a);
+			i++;
 		}
 		
 		Scanner sc = new Scanner(System.in);
@@ -42,6 +46,7 @@ public class Launcher {
 			switch(choice) {
 			case 1:
 				System.out.println("Please write your note");
+				sc.next();
 				String textNote = sc.next();
 				flag = noteStore.storeNote(textNote); 
 				if(flag) {
@@ -52,8 +57,10 @@ public class Launcher {
 				break;
 			case 2:
 				System.out.println("Please write your text note");
+				sc.next();
 				String textNotei = sc.next();
 				System.out.println("Please write your image url");
+				sc.next();
 				String urlImage = sc.next();
 				flag = noteStore.storeNote(textNotei, urlImage);
 				break;
@@ -61,11 +68,15 @@ public class Launcher {
 				//for displaying all the notes both text and text andimage notes
 				ArrayList<TextNote> arr1 = noteStore.getAllTextNotes();
 				ArrayList<TextNote> arr2 = noteStore.getAllTextAndImageNotes();
+				i = 1;
 				for(TextNote a:arr1) {
-					System.out.println(a);
+					System.out.println("textnote" + i + ":"+ a);
+					i++;
 				}
+				i =1;
 				for (TextNote a : arr2) {
-					System.out.println(a);
+					System.out.println("text and image note " + i + ":"+ a);
+					i++;
 				}
 				break;
 			case 4:
